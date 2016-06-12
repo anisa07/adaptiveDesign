@@ -1,0 +1,180 @@
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
+@import url(https://fonts.googleapis.com/css?family=PT+Sans+Narrow);
+$font-bold: 'PT Sans',
+sans-serif;
+$font-narrow: 'PT Sans Narrow',
+sans-serif;
+$border-color: #1f77a5;
+$base-bg: #ffffff;
+$date-color: #c1c1c1;
+$focused-title: #065172;
+body,
+html {
+    min-width: 300px;
+    min-height: 200px;
+}
+
+@mixin bg-mixin($pos) {
+    position: $pos;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}
+
+#bg {
+    @include bg-mixin(fixed);
+    min-width: 100%;
+    min-height: 100%;
+}
+
+#base {
+    background: $base-bg;
+    width: 90%;
+    box-shadow: 0 0 15px 2px;
+    @include bg-mixin(fixed);
+}
+
+#container {
+    @include bg-mixin(absolute);
+    text-align: center;
+}
+
+.subcontainer {
+    display: inline-block;
+    margin: auto;
+    vertical-align: text-top;
+    margin-top: 12px;
+    .image {
+        width: 100%;
+        border: 1px solid $border-color;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .date {
+        display: inline;
+        float: right;
+        color: $date-color;
+    }
+    .title {
+        width: 60%;
+        font-family: $font-bold;
+        font-weight: bold;
+        color: $border-color;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .description,
+    .title,
+    .image {
+        display: inline-block;
+        float: left;
+        text-align: justify;
+    }
+    .description,
+    .date,
+    .title {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .date,
+    .description {
+        font-family: $font-narrow;
+        font-weight: normal;
+    }
+}
+
+.subcontainer:hover {
+    .image {
+        opacity: .9;
+        filter: alpha(opacity=90);
+    }
+    .title {
+        color: $focused-title;
+    }
+    .description {
+        color: $border-color;
+    }
+}
+
+@media all and (min-height: 950px) {
+    #base {
+        height: 97%;
+    }
+    #container {
+        top: 1%;
+        height: 97%;
+    }
+}
+
+@media (max-height: 949px) and (min-height: 100px) {
+    #base {
+        height: 100%;
+    }
+    #container {
+        top: 1%;
+        height: 100%;
+    }
+}
+
+@media all and (min-width: 900px) {
+    #container { 
+        width: 90%;
+    }
+    .subcontainer {
+        width: 30%;
+    }
+    .subcontainer:nth-child(1),
+    .subcontainer:nth-child(2),
+    .subcontainer:nth-child(4),
+    .subcontainer:nth-child(5) {
+        margin-right: 12px;
+    }
+    .subcontainer:nth-child(1),
+    .subcontainer:nth-child(2),
+    .subcontainer:nth-child(3) {
+        border-bottom: 1px solid #c1c1c1;
+        padding-bottom: 12px;
+    }
+}
+
+@media (max-width: 899px) and (min-width: 600px) {
+    .subcontainer {
+        width: 40%;
+        margin-bottom: 12px;
+        margin-top: 0;
+        clear: both;
+    }
+    #container {
+        width: 95%;
+        height: 100%;
+        top: 3%;
+    }
+    .subcontainer:nth-child(odd) {
+        margin-right: 12px;
+    }
+    #base {
+        height: 100%;
+    }
+}
+
+@media (max-width: 599px) and (min-width: 299px) {
+    #container {
+        width: 100%;
+        min-height: 100%;
+    }
+    .subcontainer {
+        width: 90%;
+        margin: 12px;
+        border-bottom: 1px solid $date-color;
+        padding-bottom: 12px;
+    }
+    #bg {
+        display: none;
+    }
+    #base {
+        box-shadow: 0 0 0 0;
+    }
+}

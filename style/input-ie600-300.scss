@@ -1,0 +1,25 @@
+#container {
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}
+
+.subcontainer {
+    width: 90%;
+    margin: 12px;
+    border-bottom: 1px solid #c1c1c1;
+    padding-bottom: 12px;
+}
+
+#bg {
+    display: none;
+}
+
+#base {
+    box-shadow: 0 0 0 0;
+}
